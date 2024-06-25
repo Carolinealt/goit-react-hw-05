@@ -3,8 +3,6 @@ import "./App.css";
 import { funcApi } from "./api";
 import { useEffect } from "react";
 
-const js = [];
-
 function App() {
   const [films, setFilms] = useState([]);
   useEffect(() => {
