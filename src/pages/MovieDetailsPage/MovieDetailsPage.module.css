@@ -42,3 +42,10 @@ h2 {
     transform: translateY(-50%);
 
 }
+
+.containerNav{
+    display: flex;
+    gap: 30px;
+    font-size: 40px;
+
+}

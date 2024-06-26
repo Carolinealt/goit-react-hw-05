@@ -33,3 +33,4 @@ export const searchByQuery = async (query) => {
   );
   return data;
 };
+

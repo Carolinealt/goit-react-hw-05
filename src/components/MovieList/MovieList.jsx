@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import css from "./MovieList.module.css";
-const MovieList = ({ films, title }) => {
+const MovieList = ({ films, title, queryLocation }) => {
   return (
     <>
       <div className={css.container}>
@@ -8,7 +8,11 @@ const MovieList = ({ films, title }) => {
         <ul className={css.list}>
           {films.map((el) => (
             <li key={`${el.id}${Math.random()}`} className={css.listItem}>
-              <Link to={`/movies/${el.id}`} className={css.Link}>
+              <Link
+                to={`/movies/${el.id}`}
+                state={queryLocation.state}
+                className={css.Link}
+              >
                 {el.original_title}
               </Link>
             </li>

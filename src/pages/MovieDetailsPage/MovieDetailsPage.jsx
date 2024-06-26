@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { singleMovie } from "../../api";
 import css from "./MovieDetailsPage.module.css";
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
   const [posterPath, setPosterPath] = useState(``);
-
+  const location = useLocation();
+  const backLocation = useRef(location.state ?? "/movies");
+  console.log(location);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -19,13 +21,13 @@ const MovieDetailsPage = () => {
   }, [movieId, setMovie]);
 
   const { title, vote_average, overview, genres, poster_path } = movie;
+
   useEffect(() => {
     setPosterPath(`https://image.tmdb.org/t/p/w780/${poster_path}`);
   }, [setPosterPath, poster_path]);
 
   return (
     <>
-      <button>back</button>
       <div>
         <ul className={css.list}>
           <li className={css.listItem}>
@@ -55,6 +57,13 @@ const MovieDetailsPage = () => {
             </div>
           </li>
         </ul>
+        <Link to={backLocation.current}>back</Link>
+
+        <nav className={css.containerNav}>
+          <Link to={"cast"}>cast</Link>
+          <Link to={"reviews"}>reviews</Link>
+        </nav>
+        <Outlet />
       </div>
     </>
   );
