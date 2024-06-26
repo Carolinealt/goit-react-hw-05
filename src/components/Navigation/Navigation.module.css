@@ -1,0 +1,26 @@
+.navList {
+    background-color: #161616;
+    position: fixed;
+    width: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.navItem {
+    margin: 5px;
+    font-size: 35px;
+    color: rgb(233, 233, 233);
+}
+
+.navItem:hover,
+.navItem:focus {
+    color: rgb(162, 0, 0);
+}
+
+.isActive {
+    color: rgb(128, 14, 14);
+
+    text-decoration: underline;
+}

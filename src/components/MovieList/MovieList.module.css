@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #1a1919;
+    border-radius: 20px;
+}
+
+.header {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.Link {
+    color: rgb(211, 211, 211);
+    font-size: 20px;
+}

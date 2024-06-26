@@ -1,35 +1,26 @@
-import { useState } from "react";
 import "./App.css";
-import { funcApi } from "./api";
-import { useEffect } from "react";
+
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import MoviesPage from "./pages/MoviesPage/MoviesPage";
+import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Navigation from "./components/Navigation/Navigation";
 
 function App() {
-  const [films, setFilms] = useState([]);
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await funcApi();
-        const timing = data.data.results;
-        setFilms((prev) => [...prev, ...timing]);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, [setFilms]);
-
   return (
-    <ul>
-      {films.map((el) => (
-        <li key={`${el.id}${Math.random()}`}>
-          <img
-            src={`http://image.tmdb.org/t/p/w1280/${el.backdrop_path}`}
-            alt=""
-          />
-          <p>{el.original_title}</p>
-        </li>
-      ))}
-    </ul>
+    <>
+      <Navigation />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+        <Route path="/movies/:movieId/cast" element={<MovieDetailsPage />} />
+        <Route path="/movies/:movieId/reviews" element={<MovieDetailsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 }
 

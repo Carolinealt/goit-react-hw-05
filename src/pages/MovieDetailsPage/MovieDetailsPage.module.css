@@ -1,0 +1,44 @@
+h4,
+h3,
+h2 {
+    margin: 0;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+}
+
+.listItem {
+    text-align: left;
+    margin: 5px;
+}
+
+.containerDetails {
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 5px 0;
+}
+
+.poster {
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.containerGenres {
+    display: flex;
+    flex-direction: row;
+}
+
+.genre:not(:last-child):after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    margin: auto 5px;
+    transform: translateY(-50%);
+
+}
