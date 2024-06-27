@@ -8,6 +8,8 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const backLocation = useRef(location.state ?? "/movies");
   const { movieId } = useParams();
+  const defaultImg =
+    "<https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg>";
 
   useEffect(() => {
     const getOneMovie = async () => {
@@ -31,7 +33,11 @@ const MovieDetailsPage = () => {
         <ul className={css.list}>
           <li className={css.listItem}>
             <div className={css.containerDetails}>
-              <img src={posterPath} alt={title} className={css.poster} />
+              <img
+                src={poster_path ? posterPath : defaultImg}
+                alt={title}
+                className={css.poster}
+              />
             </div>
           </li>
           <li className={css.listItem}>
