@@ -9,7 +9,7 @@ const options = {
   },
 };
 
-export const funcApi = async () => {
+export const trendingMovies = async () => {
   try {
     const data = await axios.get(
       `${url}trending/movie/day?language=en-US`,
@@ -34,3 +34,12 @@ export const searchByQuery = async (query) => {
   return data;
 };
 
+export const movieCredits = async (id) => {
+  const data = await axios.get(`${url}movie/${id}/credits`, options);
+  return data;
+};
+
+export const movieReviews = async (id) => {
+  const data = await axios.get(`${url}movie/${id}/reviews`, options);
+  return data;
+};

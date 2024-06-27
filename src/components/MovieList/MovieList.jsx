@@ -10,7 +10,7 @@ const MovieList = ({ films, title, queryLocation }) => {
             <li key={`${el.id}${Math.random()}`} className={css.listItem}>
               <Link
                 to={`/movies/${el.id}`}
-                state={queryLocation.state}
+                state={queryLocation}
                 className={css.Link}
               >
                 {el.original_title}

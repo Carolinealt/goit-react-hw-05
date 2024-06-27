@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { funcApi } from "../../api";
+import { trendingMovies } from "../../api";
 import MovieList from "../../components/MovieList/MovieList";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 const HomePage = () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
     const getData = async () => {
       try {
         setError(false);
-        const data = await funcApi();
+        const data = await trendingMovies();
         const results = data.data.results;
         setFilms(() => [...results]);
       } catch (error) {

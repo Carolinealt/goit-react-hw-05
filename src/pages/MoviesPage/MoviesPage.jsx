@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import MovieList from "../../components/MovieList/MovieList";
 import { searchByQuery } from "../../api";
 import { useLocation, useSearchParams } from "react-router-dom";
+import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [films, setFilms] = useState([]);
   const [query, setQuery] = useState("");
   const [params, setParams] = useSearchParams();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const userQuery = e.target.query.value.trim();
@@ -46,9 +48,11 @@ const MoviesPage = () => {
           name="query"
           value={params.get("query") ?? ""}
           onChange={setSearchParams}
+          className={css.input}
         />
-        <button type="submit">search</button>
+        <button type="submit" className={css.btn}>search</button>
       </form>
+
       {films.length > 0 && (
         <MovieList
           films={films}

@@ -7,7 +7,6 @@ const MovieDetailsPage = () => {
   const [posterPath, setPosterPath] = useState(``);
   const location = useLocation();
   const backLocation = useRef(location.state ?? "/movies");
-  console.log(location);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -57,11 +56,17 @@ const MovieDetailsPage = () => {
             </div>
           </li>
         </ul>
-        <Link to={backLocation.current}>back</Link>
+        <Link to={backLocation.current} className={css.link}>
+          back
+        </Link>
 
         <nav className={css.containerNav}>
-          <Link to={"cast"}>cast</Link>
-          <Link to={"reviews"}>reviews</Link>
+          <Link to={"cast"} className={css.link}>
+            cast
+          </Link>
+          <Link to={"reviews"} className={css.link}>
+            reviews
+          </Link>
         </nav>
         <Outlet />
       </div>

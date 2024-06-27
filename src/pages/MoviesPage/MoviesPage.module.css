@@ -1,0 +1,12 @@
+.input {
+    padding: 17px;
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+    margin: 10px;
+    background-color: #181818;
+}
+
+.btn{
+    font-size: 20px;
+}
