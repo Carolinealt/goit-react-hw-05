@@ -14,7 +14,6 @@ const MovieCast = () => {
     };
     getCast();
   }, [setCastList, movieId]);
-  console.log(castList);
   return (
     <>
       <div className={css.container}>

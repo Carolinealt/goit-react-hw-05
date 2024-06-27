@@ -11,7 +11,6 @@ const MovieReviews = () => {
     const getReviews = async () => {
       const data = await movieReviews(movieId);
       const list = data.data.results;
-      console.log(list);
       setReviews(() => list);
     };
     getReviews();
