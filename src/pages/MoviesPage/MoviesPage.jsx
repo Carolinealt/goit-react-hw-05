@@ -42,7 +42,7 @@ const MoviesPage = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="text"
           name="query"
