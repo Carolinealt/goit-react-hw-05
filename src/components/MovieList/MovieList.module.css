@@ -20,11 +20,12 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  gap: 10px;
+  gap: 30px;
 }
 
 .listItem {
   width: calc((100% - 60px) / 3);
+
 }
 
 .Link {

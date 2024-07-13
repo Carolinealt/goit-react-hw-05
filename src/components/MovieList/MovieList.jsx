@@ -14,7 +14,7 @@ const MovieList = ({ films, title, queryLocation }) => {
                 className={css.Link}
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/w500/${el.backdrop_path}`}
+                  src={`https://image.tmdb.org/t/p/w500/${el.poster_path}`}
                   alt=""
                   className={css.img}
                 />
