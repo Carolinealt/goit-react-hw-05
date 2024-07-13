@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { trendingMovies } from "../../api";
 import MovieList from "../../components/MovieList/MovieList";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import { useLocation } from "react-router-dom";
 const HomePage = () => {
   const [films, setFilms] = useState([]);
-
+  const location = useLocation();
+  console.log("location :>> ", location.pathname);
   const [error, setError] = useState(() => {
     return { toShow: false, message: "" };
   });
@@ -30,7 +32,11 @@ const HomePage = () => {
     <>
       {error.toShow && <NotFoundPage message={error.message} />}
       {films.length > 0 && (
-        <MovieList films={films} title={"trending movies"} />
+        <MovieList
+          films={films}
+          title={"trending movies"}
+          queryLocation={location.pathname}
+        />
       )}
     </>
   );

@@ -8,18 +8,16 @@ const MovieList = ({ films, title, queryLocation }) => {
         <ul className={css.list}>
           {films.map((el) => (
             <li key={`${el.id}${Math.random()}`} className={css.listItem}>
-              {console.log("el :>> ", el)}
-              
               <Link
                 to={`/movies/${el.id}`}
                 state={queryLocation}
                 className={css.Link}
               >
                 <img
-                src={`https://image.tmdb.org/t/p/w500/${el.backdrop_path}`}
-                alt=""
-                className={css.img}
-              />
+                  src={`https://image.tmdb.org/t/p/w500/${el.backdrop_path}`}
+                  alt=""
+                  className={css.img}
+                />
                 {el.original_title}
               </Link>
             </li>
