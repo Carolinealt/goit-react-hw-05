@@ -42,7 +42,7 @@ const MoviesPage = () => {
       }
     };
     getMoviesList();
-  }, [setFilms, params, setIsError]);
+  }, [setFilms, params, setIsError, query]);
 
 
   return (
