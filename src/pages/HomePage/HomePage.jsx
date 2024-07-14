@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 const HomePage = () => {
   const [films, setFilms] = useState([]);
   const location = useLocation();
-  console.log("location :>> ", location.pathname);
   const [error, setError] = useState(() => {
     return { toShow: false, message: "" };
   });

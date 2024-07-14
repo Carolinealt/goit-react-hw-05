@@ -6,7 +6,6 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
   const [posterPath, setPosterPath] = useState(``);
   const location = useLocation();
-  console.log('location :>> ', location);
   const backLocation = useRef(location.state ?? "/movies");
   const { movieId } = useParams();
   const defaultImg =

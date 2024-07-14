@@ -6,48 +6,48 @@ import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [films, setFilms] = useState([]);
-  const [query, setQuery] = useState("");
   const [params, setParams] = useSearchParams();
+  const [isError, setIsError] = useState(false)
+  const query = params.get("query");
+  const setSearchParams = (value) => {
+    params.set("query", `${value}`);
+    setParams(params);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const userQuery = e.target.query.value.trim();
-    setQuery(() => {
-      return userQuery;
-    });
+    setSearchParams(userQuery);
+
   };
 
   const location = useLocation();
 
   useEffect(() => {
+    if (query === null) return;
     const getMoviesList = async () => {
       try {
-        const data = await searchByQuery(query);
+        const data = await searchByQuery(params.get('query'));
 
         const results = data.data.results;
         setFilms(() => {
           return results;
         });
       } catch (e) {
-        console.log(e);
+        setIsError(true)
       }
     };
     getMoviesList();
-  }, [setFilms, query]);
+  }, [setFilms, params, setIsError]);
 
-  const setSearchParams = ({ target: { value } }) => {
-    params.set("query", `${value}`);
-    setParams(params);
-  };
 
   return (
     <>
+    {isError && }
       <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="text"
           name="query"
-          value={params.get("query") ?? ""}
-          onChange={setSearchParams}
           className={css.input}
         />
         <button type="submit" className={css.btn}>search</button>
