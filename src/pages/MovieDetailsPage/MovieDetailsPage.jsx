@@ -17,6 +17,9 @@ const MovieDetailsPage = () => {
   useEffect(() => {
     const getOneMovie = async () => {
       try {
+        setIsError(
+          { isShow: false, message: '' }
+        );
         const cleanMovieId = movieId.replace(":", "");
         const data = await singleMovie(cleanMovieId);
         setMovie(() => data.data);
