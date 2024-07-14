@@ -3,11 +3,12 @@ import MovieList from "../../components/MovieList/MovieList";
 import { searchByQuery } from "../../api";
 import { useLocation, useSearchParams } from "react-router-dom";
 import css from "./MoviesPage.module.css";
+import Error from "../../components/Error/Error";
 
 const MoviesPage = () => {
   const [films, setFilms] = useState([]);
   const [params, setParams] = useSearchParams();
-  const [isError, setIsError] = useState(false)
+  const [isError, setIsError] = useState({ isShow: false, message: '' })
   const query = params.get("query");
   const setSearchParams = (value) => {
     params.set("query", `${value}`);
@@ -27,6 +28,9 @@ const MoviesPage = () => {
     if (query === null) return;
     const getMoviesList = async () => {
       try {
+        setIsError(
+          { isShow: false, message: '' }
+        )
         const data = await searchByQuery(params.get('query'));
 
         const results = data.data.results;
@@ -34,7 +38,7 @@ const MoviesPage = () => {
           return results;
         });
       } catch (e) {
-        setIsError(true)
+        setIsError({ isShow: true, message: e.message })
       }
     };
     getMoviesList();
@@ -43,7 +47,7 @@ const MoviesPage = () => {
 
   return (
     <>
-    {isError && }
+      {isError.isShow && <Error message={isError.message} />}
       <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="text"
