@@ -2,8 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { singleMovie } from "../../api";
 import css from "./MovieDetailsPage.module.css";
+import Error from "../../components/Error/Error";
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState({});
+  const [isError, setIsError] = useState({ isShow: false, message: '' })
+
   const [posterPath, setPosterPath] = useState(``);
   const location = useLocation();
   const backLocation = useRef(location.state ?? "/movies");
@@ -13,13 +16,19 @@ const MovieDetailsPage = () => {
 
   useEffect(() => {
     const getOneMovie = async () => {
-      const cleanMovieId = movieId.replace(":", "");
-      const data = await singleMovie(cleanMovieId);
-      setMovie(() => data.data);
+      try {
+        const cleanMovieId = movieId.replace(":", "");
+        const data = await singleMovie(cleanMovieId);
+        setMovie(() => data.data);
+
+      } catch (error) {
+        setIsError({ isShow: true, message: error.message })
+
+      }
     };
 
     getOneMovie();
-  }, [movieId, setMovie]);
+  }, [movieId, setMovie, setIsError]);
 
   const { title, vote_average, overview, genres, poster_path } = movie;
 
@@ -30,6 +39,7 @@ const MovieDetailsPage = () => {
   return (
     <>
       <div>
+        {isError.isShow && <Error />}
         <ul className={css.list}>
           <li className={css.listItem}>
             <div className={css.containerDetails}>
