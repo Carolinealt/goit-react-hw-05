@@ -10,21 +10,21 @@ const MovieReviews = () => {
 
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    try {
-      setIsError(
-        { isShow: false, message: '' }
-      );
-      const getReviews = async () => {
+    const getReviews = async () => {
+      try {
+        setIsError(
+          { isShow: false, message: '' }
+        );
         const data = await movieReviews(movieId);
         const list = data.data.results;
         setReviews(() => list);
-      };
-      getReviews();
 
-    } catch (error) {
-      setIsError({ isShow: true, message: error.message })
+      } catch (error) {
+        setIsError({ isShow: true, message: error.message })
 
-    }
+      }
+    };
+    getReviews();
   }, [setReviews, movieId, setIsError]);
   return (
     <>

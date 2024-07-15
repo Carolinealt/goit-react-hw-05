@@ -10,21 +10,20 @@ const MovieCast = () => {
   const [isError, setIsError] = useState({ isShow: false, message: '' })
 
   useEffect(() => {
-    try {
-      setIsError(
-        { isShow: false, message: '' }
-      )
-      const getCast = async () => {
+    const getCast = async () => {
+      try {
+        setIsError(
+          { isShow: false, message: '' }
+        )
         const data = await movieCredits(movieId);
         const cast = data.data.cast;
         setCastList(() => cast);
-      };
-      getCast();
+      } catch (error) {
+        setIsError({ isShow: true, message: error.message })
+      }
+    };
+    getCast();
 
-    } catch (e) {
-      setIsError({ isShow: true, message: e.message })
-
-    }
   }, [setCastList, movieId, setIsError]);
   return (
     <>
