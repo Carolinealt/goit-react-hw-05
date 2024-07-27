@@ -1,55 +1,88 @@
 h4,
 h3,
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .list {
-    list-style: none;
-    display: flex;
-margin-top:60px ;}
+  list-style: none;
+  display: flex;
+  margin: 40px;
+  padding: 0;
+  max-width: 1270px;
+}
 
 .listItem {
-    text-align: left;
-    margin: 5px;
+  text-align: left;
+  margin: 5px;
+  flex: 1;
 }
 
 .containerDetails {
-    background-color: #1a1a1a;
-    padding: 10px;
-    border-radius: 20px;
-    margin: 5px 0;
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 5px 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.634);
 }
 
 .poster {
-    max-width: 500px;
-    border-radius: 20px;
+  border-radius: 20px;
+  width: 100%;
 }
 
 .containerGenres {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .genre:not(:last-child):after {
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background-color: white;
-    border-radius: 50%;
-    margin: auto 5px;
-    transform: translateY(-50%);
-
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  margin: auto 5px;
+  transform: translateY(-50%);
 }
 
-.containerNav{
-    display: flex;
-    gap: 30px;
-    font-size: 40px;
-
+.containerNav {
+  display: flex;
+  gap: 30px;
+  font-size: 40px;
+  margin-left: 90px;
 }
-.link{
-    color: rgb(216, 216, 216); 
-    font-size: 27px;
+.link {
+  color: rgb(216, 216, 216);
+  font-size: 27px;
+}
+
+@media (max-width: 750px) {
+  .list {
+    flex-direction: column;
+    margin: 10px;
+  }
+  .listItem:first-child .containerDetails {
+    text-align: center;
+  }
+  .poster {
+    max-width: 300px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.634);
+  }
+  .containerDetails {
+    text-align: left;
+  }
+  .containerNav {
+    margin: 40px;
+  }
+}
+
+@media (max-width: 350px) {
+  .list {
+    font-size: 12px;
+  }
+  .containerNav {
+    margin: 23px;
+  }
 }

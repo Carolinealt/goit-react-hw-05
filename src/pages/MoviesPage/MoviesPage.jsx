@@ -46,7 +46,7 @@ const MoviesPage = () => {
 
 
   return (
-    <>
+    <div className={css.wrapper}>
       {isError.isShow && <Error message={isError.message} />}
       <form onSubmit={handleSubmit} className={css.form}>
         <input
@@ -64,7 +64,9 @@ const MoviesPage = () => {
           queryLocation={location}
         />
       )}
-    </>
+    </div>
+
+
   );
 };
 

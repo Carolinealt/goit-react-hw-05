@@ -1,27 +1,40 @@
 .navList {
-    background-color: #161616;
-    position: fixed;
-    width: 100%;
-    display: block;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    z-index: 2;
+  background-color: #161616;
+  position: sticky;
+  max-width: 100%;
+  display: block;
+  top: 0;
+  padding: 20px;
+  z-index: 2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.634);
 }
 
 .navItem {
-    margin: 5px;
-    font-size: 35px;
-    color: rgb(233, 233, 233);
+  margin: 5px;
+  font-size: 35px;
+  color: rgb(233, 233, 233);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.634);
 }
 
 .navItem:hover,
 .navItem:focus {
-    color: rgb(162, 0, 0);
+  color: rgb(162, 0, 0);
 }
 
 .isActive {
-    color: rgb(128, 14, 14);
+  color: rgb(128, 14, 14);
 
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+@media (max-width: 750px) {
+  .navItem {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 350px) {
+  .navItem {
+    font-size: 19px;
+  }
 }

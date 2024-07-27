@@ -1,14 +1,39 @@
-.container {}
+.container {
+}
 
 .list {
-    list-style: none;
+  list-style: none;
+  padding: 0;
+  max-width: 1200px;
+  margin: auto;
+  word-wrap: break-word;
 }
 
 .listItem {
-    text-align: left;
-    border: 3px solid rgb(17, 17, 17);
-    padding: 10px;
-    border-radius: 20px;
-    margin: 10px;
-    font-size: 20px;
+  text-align: left;
+  border: 3px solid rgb(17, 17, 17);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px;
+  font-size: 20px;
+}
+
+@media (max-width: 750px) {
+  .list {
+    font-size: 15px;
+  }
+  .listItem {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 350px) {
+  .list {
+    font-size: 12px;
+  }
+  .listItem {
+    font-size: 13px;
+    padding: 20px;
+    margin: 15px;
+  }
 }

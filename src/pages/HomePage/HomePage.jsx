@@ -3,6 +3,7 @@ import { trendingMovies } from "../../api";
 import MovieList from "../../components/MovieList/MovieList";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import { useLocation } from "react-router-dom";
+import css from './HomePage.module.css';
 const HomePage = () => {
   const [films, setFilms] = useState([]);
   const location = useLocation();
@@ -28,7 +29,7 @@ const HomePage = () => {
   }, [setFilms]);
 
   return (
-    <>
+    <div className={css.wrapper}>
       {error.toShow && <NotFoundPage message={error.message} />}
       {films.length > 0 && (
         <MovieList
@@ -37,7 +38,7 @@ const HomePage = () => {
           queryLocation={location.pathname}
         />
       )}
-    </>
+    </div>
   );
 };
 export default HomePage;

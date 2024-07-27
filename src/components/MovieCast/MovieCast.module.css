@@ -1,52 +1,67 @@
 .castContainer {
-    background-color: #fff;
-    width: 400px;
-    height: 350px;
-    color: black;
+  background-color: #fff;
+  width: 400px;
+  height: 350px;
+  color: black;
 }
 
 .list {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
-    background-color: #1a1a1a;
-    padding: 10px;
-    border-radius: 20px;
-    margin: 5px 0;
-    padding: 40px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 5px auto;
+  padding: 40px;
+  max-width: 1270px;
+
 }
 
 .listItem {
-    width: calc((100% - 40px) / 3);
-    transition: transform 200ms ease-in-out;
-    z-index: 1;
+  width: calc((100% - 40px) / 3);
+  transition: transform 200ms ease-in-out;
+  z-index: 1;
+
 }
 
 .containerActor {
-    background-color: #242424;
-    padding: 10px;
-    width: 90%;
-    margin: auto;
-    border-radius: 20px;
-
-
+  background-color: #242424;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+  border-radius: 20px;
 }
 
 .imgActor {
-    width: 250px;
-    border-radius: 20px;
-
+  width: 100%;
+  border-radius: 20px;
 }
 
 .about {
-    display: inline-block;
-    width: 70%;
-    margin: auto;
+  display: inline-block;
+  width: 70%;
+  margin: auto;
 }
 
 .listItem:hover,
 .listItem:focus {
-    transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+@media (max-width: 750px) {
+  .list {
+    font-size: 15px;
+  }
+  .listItem {
+    width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 350px) {
+  .list {
+    font-size: 12px;
+  }
 }
